@@ -5,14 +5,16 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.example.firebase2_31_01_2023.databinding.ActivityHomeBinding
+import com.example.firebase2_31_01_2023.prefs.Prefs
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
-
+    lateinit var prefs: Prefs
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
+        prefs = Prefs(this)
         setContentView(binding.root)
     }
 
@@ -25,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.item_logout -> {
                 FirebaseAuth.getInstance().signOut()
+                prefs.deleteAll()
                 finish()
                 true
             }

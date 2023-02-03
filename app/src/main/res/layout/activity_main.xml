@@ -56,4 +56,19 @@
         app:layout_constraintStart_toEndOf="@+id/btnRegistrar"
         app:layout_constraintTop_toTopOf="@+id/btnRegistrar" />
 
+    <Button
+        android:id="@+id/btnGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Login con google"
+        android:textColor="#2196F3"
+        app:icon="@drawable/googleg_standard_color_18"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

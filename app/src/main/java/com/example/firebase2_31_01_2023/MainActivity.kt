@@ -72,7 +72,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login() {
-
+        if (!recogerDatos()) return
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    prefs.guardarEmail(email)
+                    irHome()
+                } else {
+                    mostrarError("Error al iniciar sesión")
+                }
+            }
     }
 
     private fun comprobarSesion() {
